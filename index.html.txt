@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Promoção PIX</title>
+  <style>
+    body {
+      background: #f1f1f1;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .form-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+      max-width: 400px;
+      margin: auto;
+    }
+    input {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 80%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #2ecc71;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #27ae60;
+    }
+    #jumpscare {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    #jumpscare img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h1>Ganhe um PIX Agora!</h1>
+    <p>Preencha seus dados para participar.</p>
+    <input type="text" placeholder="Nome Completo">
+    <input type="text" placeholder="Chave PIX">
+    <button onclick="scare()">Enviar</button>
+  </div>
+
+  <div id="jumpscare">
+    <img src="https://i.imgur.com/3ZQZ3ZC.jpg" alt="Susto">
+    <audio id="scream" src="https://www.myinstants.com/media/sounds/movie_1.mp3"></audio>
+  </div>
+
+  <script>
+    function scare() {
+      setTimeout(() => {
+        document.getElementById('jumpscare').style.display = 'flex';
+        document.getElementById('scream').play();
+        setTimeout(() => {
+          alert('PEGADINHA! Não insira dados reais em sites desconhecidos!');
+          document.getElementById('jumpscare').style.display = 'none';
+        }, 3000);
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
